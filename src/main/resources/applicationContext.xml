@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	default-autowire="byName"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd">
+	
+    <!-- DAOs for the Authentication & Authorization, used by the securityService -->
+    <bean id="shiroUserDao" class="org.apache.struts2.shiro.example.security.UserDaoNoDbImpl" scope="singleton"/>
+ 
+    <!-- Service for Authentication & Authorization, used by the shiroRealm -->
+    <bean id="shiroSecurityService" class="org.apache.struts2.shiro.example.security.SecurityServiceImpl" scope="singleton">
+        <property name="userDao" ref="shiroUserDao"/>
+    </bean>
+   
+	<!-- Import shiro info. -->
+	<import resource="shiroContext.xml" />
+	
+</beans>
+
+

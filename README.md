@@ -1,0 +1,3 @@
+Example struts2 and shiro application demonstrating basic authentication and authorization using a custom shiro realm and a struts2 inteceptor.
+
+This example uses a custom shiro realm for authentication and authorization (instead having this information in the shiro.ini file). It is based on the example at: http://shiro.apache.org/10-minute-tutorial.html. This example uses an in-memory data store, but could easily be modified to pull roles and permissions from a database or some other data source.
